@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <div class="header"><h1>COVID-19 OUTBREAK STATISTICS</h1></div>
+<br>
+
+    <div class="flex-container">
+    <div><h2>Confirmed Cases:<br>{{ .Confirmed.Value }}</h2></div>
+    <div><h2>Deaths:<br><span style="color:red;">{{ .Deaths.Value }}</span></h2></div>
+    <div><h2>Recovered:<br><span style="color:green;">{{ .Recovered.Value }}</span></h2></div>
+    </div>
+    <br>
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa fa-caret-down" style="color:red;margin-right:20px;"></i>Italy<i class="fa fa-caret-down" style="color:red;margin-left:20px;"></i></button>
+        <div class="dropdown-content">
+          <a href="/"><span style="color:red;font-weight:bolder;letter-spacing:10px;">Worldwide</span></a>
+          <a href="/poland">Poland</a>
+          <a href="/unitedkingdom">United Kingdom</a>
+          <a href="/china">China</a>
+          <a href="/italy">Italy</a>
+          <a href="/usa">United States of America</a>
+        </div>
+      </div>
+
+
+
+
+
+
+  </body>
+</html>

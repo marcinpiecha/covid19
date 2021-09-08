@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+</script>
+    <div class="header"><h1>COVID-19</h1></div>
+<br>
+    <div class="flex-container">
+      {{ with .data}}
+    <div><h2><span class="text">Confirmed Cases:</span><br>{{ .Confirmed.Value }}</h2></div>
+    <div><h2><span class="text">Deaths:</span><br><span style="color:red;">{{ .Deaths.Value }}</span></h2></div>
+    <div><h2><span class="text">Recovered:</span><br><span style="color:green;">{{ .Recovered.Value }}</span></h2></div>
+      {{ end }}
+    </div>
+    <br>
+
+    <div class="dropdown">
+        <button class="dropbtn"><i class="fa fa-caret-down" style="color:red;margin-right:20px;"></i>SELECT YOUR COUNTRY<i class="fa fa-caret-down" style="color:red;margin-left:20px;"></i></button>
+        <div class="dropdown-content">
+          <a href="/gbr">United Kingdom</a>
+          <a href="/pl">Poland</a>
+          <a href="fr">France</a>
+          <a href="/de">Germany</a>
+          <a href="esp">Spain</a>
+          <a href="/it">Italy</a>
+          <a href="/cn">China</a>
+          <a href="/us">United States of America</a>
+          <a href="/ca">Canada</a>
+        </div>
+      </div>
+
+    <br>
+    <iframe title="" aria-label="World Symbol map" id="datawrapper-chart-ZQR3O" src="//datawrapper.dwcdn.net/ZQR3O/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="525"></iframe>
+    <br>
+
+    <h3>GLOBAL CASES</h3>
+    <input id="myInput" type="text" placeholder="Search..">
+    <br><br>
+    <table>
+      <thead>
+        <tr>
+          <th class="sort">Country</th>
+          <th class="sort">Confirmed Cases</th>
+          <th class="sort">Deaths</th>
+          <th class="sort">Recovered</th>
+          <th class="sort">Active</th>
+        </tr>
+        <tbody id="myTable">
+          {{ with .data2}}
+          {{ range $value := . }}
+          <tr>
+            <td>{{.CountryRegion}}  {{.ProvinceState}}</td>
+            <td>{{.Confirmed}}</td>
+            <td style="color:red;">{{.Deaths}}</td>
+            <td style="color:green;">{{.Recovered}}</td>
+            <td>{{.Active}}</td>
+          </tr>
+          {{ end }}
+          {{ end }}
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+              $('th').click(function(){
+          var table = $(this).parents('table').eq(0)
+          var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+          this.asc = !this.asc
+          if (!this.asc){rows = rows.reverse()}
+          for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+      })
+      function comparer(index) {
+          return function(a, b) {
+              var valA = getCellValue(a, index), valB = getCellValue(b, index)
+              return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+          }
+      }
+      function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+
+    </script>
+
+
+  </body>
+</html>

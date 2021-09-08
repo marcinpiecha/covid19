@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <div class="header"><h1>COVID-19 <span id="countryBanner"></span></h1></div>
+<br>
+
+    <div class="flex-container">
+      {{ with .data }}
+    <div><h2>Confirmed Cases:<br>{{ .Confirmed.Value }}</h2></div>
+    <div><h2>Deaths:<br><span style="color:red;">{{ .Deaths.Value }}</span></h2></div>
+    <div><h2>Recovered:<br><span style="color:green;">{{ .Recovered.Value }}</span></h2></div>
+      {{ end }}
+    </div>
+    <br>
+    <div class="dropdown">
+        {{ with .link}}
+        <button class="dropbtn"><i class="fa fa-caret-down" style="color:red;margin-right:20px;"></i><span id="country">{{ .Country }}</span><i class="fa fa-caret-down" style="color:red;margin-left:20px;"></i></button>
+        {{ end }}
+        <div class="dropdown-content">
+          <a href="/"><span style="color:red;font-weight:bolder;letter-spacing:10px;">Worldwide</span></a>
+          <a href="/gbr">United Kingdom</a>
+          <a href="/pl">Poland</a>
+          <a href="fr">France</a>
+          <a href="/de">Germany</a>
+          <a href="esp">Spain</a>
+          <a href="/it">Italy</a>
+          <a href="/cn">China</a>
+          <a href="/us">United States of America</a>
+          <a href="/ca">Canada</a>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+
+      var country = document.getElementById("country").innerHTML
+      //console.log(country)
+      switch(country) {
+          case "gbr":
+            document.getElementById("country").innerHTML = "United Kingdom";
+            document.getElementById("countryBanner").innerHTML = "in United Kingdom";
+          break;
+          case "gb":
+            document.getElementById("country").innerHTML = "United Kingdom";
+            document.getElementById("countryBanner").innerHTML = "in United Kingdom";
+          break;
+          case "pl":
+            document.getElementById("country").innerHTML = "Poland";
+            document.getElementById("countryBanner").innerHTML = "in Poland";
+          break;
+          case "cn":
+            document.getElementById("country").innerHTML = "China";
+            document.getElementById("countryBanner").innerHTML = "in China";
+          break;
+          case "us":
+            document.getElementById("country").innerHTML = "United States of America";
+            document.getElementById("countryBanner").innerHTML = "in United States of America";
+          break;
+          case "usa":
+            document.getElementById("country").innerHTML = "United States of America";
+            document.getElementById("countryBanner").innerHTML = "in United States of America";
+          break;
+          case "it":
+            document.getElementById("country").innerHTML = "Italy";
+            document.getElementById("countryBanner").innerHTML = "in Italy";
+          break;
+          case "esp":
+            document.getElementById("country").innerHTML = "Spain";
+            document.getElementById("countryBanner").innerHTML = "in Spain";
+          break;
+          case "de":
+            document.getElementById("country").innerHTML = "Germany";
+            document.getElementById("countryBanner").innerHTML = "in Germany";
+          break;
+          case "ca":
+            document.getElementById("country").innerHTML = "Canada";
+            document.getElementById("countryBanner").innerHTML = "in Canada";
+          break;
+          case "fr":
+            document.getElementById("country").innerHTML = "France";
+            document.getElementById("countryBanner").innerHTML = "in France";
+          break;
+          default:
+          // code block
+      }
+      </script>
+
+  </body>
+</html>

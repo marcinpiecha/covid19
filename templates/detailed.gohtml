@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <h1>helo</h1>
+<br>
+<hr>
+<br>
+
+  <center><h1>Global Cases</h1></center>
+  {{ range $value := . }}
+  <ul><strong>Country: {{.CountryRegion}} / {{.ProvinceState}}/ Confirmed Cases: {{.Confirmed}} / Deaths: {{.Deaths}} / Recovered: {{.Recovered}} / Active Cases: {{.Active}}</strong></ul>
+  {{ end }}
+  <!--{{range $v, $k := .}}<li>Country:{{$v}}{{$k}}</li>{{end}}-->
+
+  </body>
+</html>

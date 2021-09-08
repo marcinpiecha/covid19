@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato/Lato-Regular.ttf'); /* IE9 Compat Modes */
+  src: url('/fonts/Lato/Lato-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('../fonts/Lato/Lato-Bold.ttf'); /* IE9 Compat Modes */
+  src: url('../fonts/Lato/Lato-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+
+
+	outline:0 none !important;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; /* 10px / 16px -> 62.5% -> 1rem -> 10px */
+}
+
+h1 {
+  font-family: 'Lato-Bold';
+  text-align: center;
+  color: white;
+  font-size: 5vw;
+  padding-top: 7vh;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+}
+
+h2 {
+  font-family: 'Lato-Bold';
+  text-align: center;
+  color: black;
+  font-size: 3vw;
+}
+
+h3 {
+  font-family: 'Lato-Bold';
+  text-align: center;
+  color: #595959;
+  font-size: 7vh;
+  padding-top: 7vh;
+}
+
+#myInput {
+  text-align:center;
+  margin: auto;
+  display: block;
+  font-size: 5vh;
+  background: url(../images/look.png) no-repeat scroll 97%;
+  background-size: 10%;
+}
+
+.header {
+  top: 0;
+  width: 100%;
+  height: 25vh;
+  background-image: url("../images/banner.jpg");
+}
+
+.flex-container {
+  display: flex;
+  /*background-image: linear-gradient(to right,#2e2e2e, #696969, #2e2e2e); */
+  background-color: #595959;
+}
+
+.flex-container > div {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  font-size: 30px;
+  width: 30%;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 35px;
+  }
+  .text {
+    font-size: 10px;
+  }
+  .flex-container > div {
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+    font-size: 30px;
+    width: 30%;
+  }
+}
+
+.countryName {
+    font-family: 'Lato';
+    text-align:center;
+    overflow: hidden;
+    background-color: #494949;
+    font-size: 4vw;
+    padding: 14px 16px;
+    color: white;
+  }
+
+.dropdown {
+  font-family: 'Lato';
+  text-align:center;
+  overflow: hidden;
+  background-color: #494949;
+  margin:auto;
+  width: 75%;
+  border-radius: 5px;
+  }
+
+.dropdown .dropbtn {
+  font-size: 4vw;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  font-size: 3vw;
+  display: none;
+  position: relative;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 2px solid #595959;
+  text-align: left;
+  padding: 8px;
+  font-size: 2vw;
+}
+th {
+    cursor: pointer;
+}
+
+.sort {
+  background: url(../images/sort.png) no-repeat scroll 98%;
+  background-size: 30px;
+}
